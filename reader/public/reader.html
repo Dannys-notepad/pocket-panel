@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reader</title>
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body class="theme-dark reader-body">
+  <div class="reader-toolbar">
+    <a id="back" class="back" href="#">← Chapters</a>
+    <span id="progress">0 / 0</span>
+    <div class="actions">
+      <button id="prevCh" title="Previous chapter (←)">⏮ Prev</button>
+      <button id="nextCh" title="Next chapter (→)">Next ⏭</button>
+      <button id="toggleFit" title="Toggle fit width (F)">📐 Fit</button>
+    </div>
+  </div>
+  <main id="pages" class="pages fit-width"></main>
+  <div id="end" class="end-marker"></div>
+  <script src="/reader.js"></script>
+</body>
+</html>

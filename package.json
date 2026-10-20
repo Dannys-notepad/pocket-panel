@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "name": "pocket-panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "reader": "tsx reader/server.ts",
+    "download": "tsx download.ts",
+    "search": "tsx search.ts"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "@weismanns/komikku": "npm:@jsr/weismanns__komikku@^1.0.0",
+    "express": "^5.3.0"
+  }
+}

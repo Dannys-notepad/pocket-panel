@@ -1,0 +1,5 @@
+node_modules/
+downloads/
+archives/
+*.log
+.DS_Store
