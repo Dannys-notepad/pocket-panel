@@ -1,11 +1,13 @@
 # PocketPanel
 
-Download manhwa chapters from [DemonicScans](https://demonicscans.org) for offline reading, plus a local web reader for your archived library.
+**The Problem:** I was tired of reading manhwa on sites filled with ads and pop-ups, and most times I just want to read them offline. Although most apps offer offline downloads, they are still limited, restricted, or force you into their specific UI.
+
+**The Solution:** So I built **PocketPanel**. It is a self-hosted webtoon scraper and local web reader. It downloads manhwa chapters from [DemonicScans](https://demonicscans.org) directly to your device and serves them through a custom, ad-free, 100% offline reading interface.
 
 Two parts:
 
-- **`download.ts`**: scrapes a series and saves pages to disk.
-- **`reader/`**: a local Express server and browser UI to read what you downloaded.
+- **`download.ts`**: Scrapes a series and saves pages to disk with smart resume and validation.
+- **`reader/`**: A local Express server and browser UI to read what you downloaded.
 
 ---
 
@@ -22,7 +24,7 @@ npm install
 
 This installs express, tsx, and the scraper dependency `@weismanns/komikku` (via JSR).
 
-**Termux / Android users:** the project works on Termux. Express is pure JS, so no native compilation is needed.
+**Termux / Android users:** PocketPanel works perfectly on Termux. Express is pure JS, so no native compilation is needed.
 
 ---
 
@@ -125,7 +127,7 @@ The `.complete` file looks like this:
 
 ### Resuming
 
-The script is safe to interrupt and re-run:
+PocketPanel is safe to interrupt and re-run:
 
 - Chapters with a `.complete` marker are skipped entirely, with no network calls.
 - Chapters without a marker are resumed: existing pages are validated, bad ones are deleted, and missing ones are downloaded.
@@ -173,7 +175,7 @@ Files that fail are deleted and re-downloaded. This catches truncated files, HTM
 
 ## Reading offline
 
-Start the local reader:
+Start the PocketPanel reader:
 
 ```bash
 npm run reader
@@ -227,7 +229,7 @@ The reader ignores the `.complete` marker as long as it only picks up image file
 ## Project layout
 
 ```
-manhwaFetcher/
+pocketpanel/
 ├── download.ts          # scraper
 ├── search.ts            # series lookup tool
 ├── package.json
@@ -311,5 +313,6 @@ If a page shows a blank space or a browser broken-image icon, the file might hav
 
 ## Notes
 
-- **Legal:** this tool is for personal archival of content you can already access. Respect the site's terms of service, rate-limit yourself, and don't redistribute downloaded content.
+- **Legal:** PocketPanel is for personal archival of content you can already access. Respect the site's terms of service, rate-limit yourself, and don't redistribute downloaded content.
 - **Source quality:** DemonicScans serves compressed scans. Image resolution and clarity depend on their source. The script downloads exactly what the server returns, with no upscaling.
+
